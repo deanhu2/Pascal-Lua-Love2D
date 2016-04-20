@@ -112,7 +112,7 @@ typeDefinitionPart
    ;
 
 typeDefinition
-   : identifier EQUAL (typeT | functionType | procedureType)
+   : identifier EQUAL (type | functionType | procedureType)
    ;
 
 functionType
@@ -123,7 +123,7 @@ procedureType
    : PROCEDURE (formalParameterList)?
    ;
 
-typeT
+type
    : simpleType
    | structuredType
    | pointerType
@@ -179,7 +179,7 @@ indexType
    ;
 
 componentType
-   : typeT
+   : type
    ;
 
 recordType
@@ -195,7 +195,7 @@ fixedPart
    ;
 
 recordSection
-   : identifierList COLON typeT
+   : identifierList COLON type
    ;
 
 variantPart
@@ -220,7 +220,7 @@ baseType
    ;
 
 fileType
-   : FILE OF typeT
+   : FILE OF type
    | FILE
    ;
 
@@ -233,7 +233,7 @@ variableDeclarationPart
    ;
 
 variableDeclaration
-   : identifierList COLON typeT
+   : identifierList COLON type
    ;
 
 procedureAndFunctionDeclarationPart
@@ -326,7 +326,7 @@ factor
    | LPAREN expression RPAREN
    | functionDesignator
    | unsignedConstant
-   | setT
+   | set
    | NOT factor
    ;
 
@@ -345,7 +345,7 @@ parameterList
    : actualParameter (COMMA actualParameter)*
    ;
 
-setT
+set
    : LBRACK elementList RBRACK
    | LBRACK2 elementList RBRACK2
    ;

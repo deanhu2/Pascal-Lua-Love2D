@@ -10,9 +10,11 @@ else:
 class pascalListener(ParseTreeListener):
     
     _parser = pascalLoveParser
+    _isUses = False
     
-    def __init__(self, ParseTreeListener):
+    def __init__(self, ParseTreeListener,filename):
         _parser = pascalLoveParser
+        _isUses=False
         
     # Enter a parse tree produced by pascalParser#program.
     def enterProgram(self, ctx:pascalParser.ProgramContext):
@@ -34,6 +36,8 @@ class pascalListener(ParseTreeListener):
 
     # Enter a parse tree produced by pascalParser#identifier.
     def enterIdentifier(self, ctx:pascalParser.IdentifierContext):
+        if (self._isUses):
+            print(ctx.getText())
         pass
 
     # Exit a parse tree produced by pascalParser#identifier.
@@ -52,10 +56,13 @@ class pascalListener(ParseTreeListener):
 
     # Enter a parse tree produced by pascalParser#usesUnitsPart.
     def enterUsesUnitsPart(self, ctx:pascalParser.UsesUnitsPartContext):
+        self._isUses=True;
+        #print(ctx.getText());
         pass
 
     # Exit a parse tree produced by pascalParser#usesUnitsPart.
     def exitUsesUnitsPart(self, ctx:pascalParser.UsesUnitsPartContext):
+        self._isUses=False;
         pass
 
 
