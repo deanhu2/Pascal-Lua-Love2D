@@ -1,10 +1,7 @@
 program add(input, output);
  
  USES System;
- uses
-       bar1,
-       bar2 in 'baz.pas',
-       bar3;
+ 
 (*** Simple program to add 2 integer arrays element by element.  ***)
  
 const

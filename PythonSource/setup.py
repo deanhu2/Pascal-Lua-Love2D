@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup (
-       name='PythonCore',
+       name='Pythoncore',
        version='0.1',
        packages=find_packages(),
 
@@ -10,12 +10,12 @@ setup (
 
        # Fill in these to make your Egg ready for upload to
        # PyPI
-       author='admin',
-       author_email='',
+       author='dean2191',
+       author_email='de.hunte@gmail.com',
 
        #summary = 'Just another Python package for the cheese shop',
        url='',
-       license='',
+       license='MIT',
        long_description='Long description of the package',
 
        # could also include long_description, download_url, classifiers, etc.

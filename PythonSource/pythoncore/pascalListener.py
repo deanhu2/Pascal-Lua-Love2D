@@ -1,6 +1,8 @@
 # Generated from pascal.g4 by ANTLR 4.5.3
 from antlr4 import *
 import pascalLoveParser
+from pascalBuildHandler import pascalBuildHandler
+from pascalUseHandler import pascalUseHandler
 if __name__ is not None and "." in __name__:
     from .pascalParser import pascalParser
 else:
@@ -9,12 +11,26 @@ else:
 # This class defines a complete listener for a parse tree produced by pascalParser.
 class pascalListener(ParseTreeListener):
     
-    _parser = pascalLoveParser
-    _isUses = False
+    _PARSER = pascalLoveParser
+    _BUILD = pascalBuildHandler
+    _USEHANDLER = pascalUseHandler
+    _CURRENTFLAG=0
+    '''
+    Flags
+    0 - no state
+    1 - program head - next var is a program name
+    2 - program head Parameters - next var is a series of parameters
+    3 - use statement - next var is a series of import names to find locally or externally
+    '''
     
+    
+    #init function to set all prelimenary variables
     def __init__(self, ParseTreeListener,filename):
-        _parser = pascalLoveParser
-        _isUses=False
+        _PARSER = pascalLoveParser
+        _BUILD = pascalBuildHandler
+        _USEHANDLER=pascalUseHandler
+        _CURRENTFLAG=0
+        
         
     # Enter a parse tree produced by pascalParser#program.
     def enterProgram(self, ctx:pascalParser.ProgramContext):
@@ -27,17 +43,25 @@ class pascalListener(ParseTreeListener):
 
     # Enter a parse tree produced by pascalParser#programHeading.
     def enterProgramHeading(self, ctx:pascalParser.ProgramHeadingContext):
+        self._CURRENTFLAG=1
         pass
 
     # Exit a parse tree produced by pascalParser#programHeading.
     def exitProgramHeading(self, ctx:pascalParser.ProgramHeadingContext):
+        self._CURRENTFLAG=0
         pass
 
 
     # Enter a parse tree produced by pascalParser#identifier.
     def enterIdentifier(self, ctx:pascalParser.IdentifierContext):
-        if (self._isUses):
+        if(self._CURRENTFLAG==1):
+            self._CURRENTFLAG=2
+            self._BUILD._create_output_dir(self,ctx.getText())
+        elif (self._CURRENTFLAG==2):
             print(ctx.getText())
+        elif (self._CURRENTFLAG==3):
+            self._USEHANDLER.find_module(self,ctx.getText())
+  
         pass
 
     # Exit a parse tree produced by pascalParser#identifier.
@@ -56,13 +80,13 @@ class pascalListener(ParseTreeListener):
 
     # Enter a parse tree produced by pascalParser#usesUnitsPart.
     def enterUsesUnitsPart(self, ctx:pascalParser.UsesUnitsPartContext):
-        self._isUses=True;
+        self._CURRENTFLAG=2
         #print(ctx.getText());
         pass
 
     # Exit a parse tree produced by pascalParser#usesUnitsPart.
     def exitUsesUnitsPart(self, ctx:pascalParser.UsesUnitsPartContext):
-        self._isUses=False;
+        self._CURRENTFLAG=0
         pass
 
 
