@@ -1,13 +1,11 @@
-<div id="header_wrap" class="outer">
-
-<header class="inner">[View on GitHub](https://github.com/dean2191/PascalLove2D)
 
 # Pascallove2d
 
 ## A source to source compiler allowing Pascal developers to reuse code and develop games for the Love2D framework.
 
-<section id="downloads">[Download this project as a .zip file](https://github.com/dean2191/PascalLove2D/zipball/master) [Download this project as a tar.gz file](https://github.com/dean2191/PascalLove2D/tarball/master)</section>
+###Download this project as a .zip file](https://github.com/dean2191/PascalLove2D/zipball/master) 
 
-</header>
+###[Download this project as a tar.gz file](https://github.com/dean2191/PascalLove2D/tarball/master)</section>
 
-</div>
+### Instalation
+Download or fork the project. The bin folder contains compiled binaries for many platforms or run the project directly via python -main.py [Source to translate parameters]
