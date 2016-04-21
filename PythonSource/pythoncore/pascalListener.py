@@ -49,6 +49,7 @@ class pascalListener(ParseTreeListener):
     # Exit a parse tree produced by pascalParser#programHeading.
     def exitProgramHeading(self, ctx:pascalParser.ProgramHeadingContext):
         self._CURRENTFLAG=0
+        #self._BUILD._build_file(self)
         pass
 
 
@@ -56,7 +57,8 @@ class pascalListener(ParseTreeListener):
     def enterIdentifier(self, ctx:pascalParser.IdentifierContext):
         if(self._CURRENTFLAG==1):
             self._CURRENTFLAG=2
-            self._BUILD._create_output_dir(self,ctx.getText())
+            self._BUILD._create_output_dir(self._BUILD,ctx.getText())
+            self._BUILD._create_file(self._BUILD, ctx.getText())
         elif (self._CURRENTFLAG==2):
             print(ctx.getText())
         elif (self._CURRENTFLAG==3):

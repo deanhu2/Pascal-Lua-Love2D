@@ -1,19 +1,38 @@
 # To change this license header, choose License Headers in Project Properties.
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
-import os
 import errno
+import os
+import sys 
 
 class pascalBuildHandler(object):
     
-    _CUSTOM__PATH=False
+    _CUSTOM__PATH = False
+    _BUILD_EXTENSION = ".lua"
+    _LAST_FILE = None
+    _LAST_DIRECTORY = None
     
     def __init__(self): # this method creates the class object.
-        _CUSTOM__PATH=False
+        _CUSTOM__PATH = False
+        _BUILD_EXTENSION = ".lua"
+        _LAST_FILE = None
+        _Last_DIRECTORY = None
         pass
     
-    def _create_output_dir(self,name):
+    def _create_file(self, name):
+        if( self._LAST_DIRECTORY == None):
+            self._LAST_FILE = open(name+self._BUILD_EXTENSION,'w')
+        else:
+            self._LAST_FILE = open(self._LAST_DIRECTORY+name+self._BUILD_EXTENSION,'w')
+         
+        pass
+    
+    def _build_file(self):
+        self._LAST_FILE.close()
+    
+    def _create_output_dir(self, name):
         try:
+            self._LAST_DIRECTORY = name
             os.makedirs(name)
         except OSError as exception:
             if exception.errno != errno.EEXIST:
