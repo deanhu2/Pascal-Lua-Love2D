@@ -23,7 +23,7 @@ class pascalBuildHandler(object):
         if( self._LAST_DIRECTORY == None):
             self._LAST_FILE = open(name+self._BUILD_EXTENSION,'w')
         else:
-            self._LAST_FILE = open(self._LAST_DIRECTORY+name+self._BUILD_EXTENSION,'w')
+            self._LAST_FILE = open(self._LAST_DIRECTORY+"/"+name+self._BUILD_EXTENSION,'w')
          
         pass
     
