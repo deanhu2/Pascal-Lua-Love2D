@@ -23,6 +23,7 @@ class pascalBuildHandler(object):
         if( self._LAST_DIRECTORY == None):
             self._LAST_FILE = open(name+self._BUILD_EXTENSION,'w')
         else:
+            #fix the use of slash for directory later.
             self._LAST_FILE = open(self._LAST_DIRECTORY+"/"+name+self._BUILD_EXTENSION,'w')
          
         pass
