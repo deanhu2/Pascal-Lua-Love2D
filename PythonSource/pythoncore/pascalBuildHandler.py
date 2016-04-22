@@ -13,10 +13,10 @@ class pascalBuildHandler(object):
     _LAST_DIRECTORY = None
     
     def __init__(self): # this method creates the class object.
-        _CUSTOM__PATH = False
-        _BUILD_EXTENSION = ".lua"
-        _LAST_FILE = None
-        _Last_DIRECTORY = None
+        self._CUSTOM__PATH = False
+        self._BUILD_EXTENSION = ".lua"
+        self._LAST_FILE = None
+        self._Last_DIRECTORY = None
         pass
     
     def _create_file(self, name):
