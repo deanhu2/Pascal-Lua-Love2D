@@ -1,7 +1,7 @@
 
 ![Image of icon](https://github.com/dean2191/PascalLove2D/blob/master/PythonSource/Resources/icon.png)
 
-#Welcome
+#Welcome - Still under construction
 
 Welcome to the PascalLove2D wiki! The project aims to develop a python written, pascal based source-source compiler with the implementation of a simple API to be used for simple cross-platform application development using the pascal programming language.
 Current progress
