@@ -15,21 +15,27 @@ class pascalListener(ParseTreeListener):
     _BUILD = pascalBuildHandler
     _USEHANDLER = pascalUseHandler
     _CURRENTFLAG=0
+    _PARAMETERS=[]
+    _LASTSTRUCTURE=None
+    
     '''
     Flags
     0 - no state
     1 - program head - next var is a program name
     2 - program head Parameters - next var is a series of parameters
     3 - use statement - next var is a series of import names to find locally or externally
+    4 - Function is currently being processed.
     '''
     
     
     #init function to set all prelimenary variables
     def __init__(self, ParseTreeListener,filename):
-        _PARSER = pascalLoveParser
-        _BUILD = pascalBuildHandler
-        _USEHANDLER=pascalUseHandler
-        _CURRENTFLAG=0
+        self._PARSER = pascalLoveParser
+        self._BUILD = pascalBuildHandler
+        self._USEHANDLER=pascalUseHandler
+        self._CURRENTFLAG=0
+        self._PARAMETERS=[]
+        self._LASTSTRUCTURE=None
         
         
     # Enter a parse tree produced by pascalParser#program.
@@ -63,6 +69,11 @@ class pascalListener(ParseTreeListener):
             print(ctx.getText())
         elif (self._CURRENTFLAG==3):
             self._USEHANDLER.find_module(self,ctx.getText())
+        elif (self._CURRENTFLAG==4):  
+            #print(ctx.getText())
+            pass
+        elif (self._CURRENTFLAG==5):  
+            self._PARAMETERS.append( ctx.getText() );
   
         pass
 
@@ -476,6 +487,7 @@ class pascalListener(ParseTreeListener):
 
     # Exit a parse tree produced by pascalParser#procedureDeclaration.
     def exitProcedureDeclaration(self, ctx:pascalParser.ProcedureDeclarationContext):
+        self._BUILD._write_function(self._BUILD,"addp",self._PARAMETERS)
         pass
 
 
@@ -490,10 +502,12 @@ class pascalListener(ParseTreeListener):
 
     # Enter a parse tree produced by pascalParser#formalParameterSection.
     def enterFormalParameterSection(self, ctx:pascalParser.FormalParameterSectionContext):
+        self._CURRENTFLAG=5
         pass
 
     # Exit a parse tree produced by pascalParser#formalParameterSection.
     def exitFormalParameterSection(self, ctx:pascalParser.FormalParameterSectionContext):
+        self._CURRENTFLAG=self._LASTSTRUCTURE
         pass
 
 
@@ -526,10 +540,15 @@ class pascalListener(ParseTreeListener):
 
     # Enter a parse tree produced by pascalParser#functionDeclaration.
     def enterFunctionDeclaration(self, ctx:pascalParser.FunctionDeclarationContext):
+        self._CURRENTFLAG=4 #set that a function is being processed
+        self._LASTSTRUCTURE=4 #set last used for recording purposes
         pass
 
     # Exit a parse tree produced by pascalParser#functionDeclaration.
     def exitFunctionDeclaration(self, ctx:pascalParser.FunctionDeclarationContext):
+        self._CURRENTFLAG=0
+        self._BUILD._write_function(self._BUILD,"add",self._PARAMETERS)
+        del self._PARAMETERS[:] #empty any stored parameters from function
         pass
 
 

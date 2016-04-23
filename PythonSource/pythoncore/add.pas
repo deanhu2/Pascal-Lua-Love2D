@@ -13,6 +13,14 @@ type
 var
    i: integer;
    a: intarray;
+   
+Function PythagorasFunc(A: Real; B: Real) : Real; {The pythagoras theorem}
+Begin
+	PythagorasFunc := SQRT(A*A + B*B);
+	{Output: Assign the procedure name to the value.
+	If you forget to assign the function to the value,
+	you will get a trash value from the memory}
+End;
  
 (* ***************************    adder    ********************************** *)
  

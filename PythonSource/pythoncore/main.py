@@ -4,6 +4,7 @@
 import pascalLoveParser
 import sys
 
+#main method and entry point of application
 def main(argv):
     """Main method calling a single debugger for an input script"""
     parser = pascalLoveParser

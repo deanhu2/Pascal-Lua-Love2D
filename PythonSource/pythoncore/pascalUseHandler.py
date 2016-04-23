@@ -5,9 +5,11 @@ import sys
 
 class pascalUseHandler(object):
     
+    #main constructor
     def __init__(self): # this method creates the class object.
         pass
     
+    #searches for an exisiting module either local or external
     def find_module(self,moduleName):
         """method used to locate an included pascal module"""
         print(moduleName)
