@@ -10,14 +10,14 @@ else:
 
 # This class defines a complete listener for a parse tree produced by pascalParser.
 class pascalListener(ParseTreeListener):
-    
+
     _PARSER = pascalLoveParser
     _BUILD = pascalBuildHandler
     _USEHANDLER = pascalUseHandler
     _CURRENTFLAG=0
     _PARAMETERS=[]
     _LASTSTRUCTURE=None
-    
+
     '''
     Flags
     0 - no state
@@ -26,8 +26,8 @@ class pascalListener(ParseTreeListener):
     3 - use statement - next var is a series of import names to find locally or externally
     4 - Function is currently being processed.
     '''
-    
-    
+
+
     #init function to set all prelimenary variables
     def __init__(self, ParseTreeListener,filename):
         self._PARSER = pascalLoveParser
@@ -36,8 +36,8 @@ class pascalListener(ParseTreeListener):
         self._CURRENTFLAG=0
         self._PARAMETERS=[]
         self._LASTSTRUCTURE=None
-        
-        
+
+
     # Enter a parse tree produced by pascalParser#program.
     def enterProgram(self, ctx:pascalParser.ProgramContext):
         pass
@@ -69,12 +69,12 @@ class pascalListener(ParseTreeListener):
             print(ctx.getText())
         elif (self._CURRENTFLAG==3):
             self._USEHANDLER.find_module(self,ctx.getText())
-        elif (self._CURRENTFLAG==4):  
+        elif (self._CURRENTFLAG==4):
             #print(ctx.getText())
             pass
-        elif (self._CURRENTFLAG==5):  
+        elif (self._CURRENTFLAG==5):
             self._PARAMETERS.append( ctx.getText() );
-  
+
         pass
 
     # Exit a parse tree produced by pascalParser#identifier.
