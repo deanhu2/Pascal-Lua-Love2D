@@ -45,17 +45,17 @@ class pascalBuildHandler(object):
 
     # Writes a function header to the file
 
-    def _write_function(self, name, _PARAMETERS):
-        self._LAST_FILE.write('\nfunction ' + name + ' (')
-        output = ''
-        if _PARAMETERS:
-            for item in _PARAMETERS:
-                output += '%s' % item + ','
-            self._LAST_FILE.write(output[:-1])
-
-        self._LAST_FILE.write(')')
+    def _write_function(self, name):  # _PARAMETERS):
+        self._LAST_FILE.write('\nfunction ' + name + " ")
         pass
 
+    def _write_variable_declaration(self, name):
+        self._LAST_FILE.write('\n' + name)
+        pass
+
+    def _write_function_end(self):
+        self._LAST_FILE.write('\nend')
+        pass
     # close the last opened file
 
     def _build_file(self):

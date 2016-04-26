@@ -11,7 +11,7 @@ type
   intarray = array [1..size] of integer;
  
 var
-   i: integer;
+   aaaaaaa: integer;
    a: intarray;
    
 Function PythagorasFunc(A: Real; B: Real) : Real; {The pythagoras theorem}
@@ -26,7 +26,7 @@ End;
  
 procedure adder(var a,b : intarray);
 var
-   i: integer;
+   bbbbbbbb: integer;
  
 begin
   for i := 1 to size do

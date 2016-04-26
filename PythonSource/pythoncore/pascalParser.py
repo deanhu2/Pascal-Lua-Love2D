@@ -376,33 +376,33 @@ class pascalParser ( Parser ):
 
     sharedContextCache = PredictionContextCache()
 
-    literalNames = [ "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
-                     "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
-                     "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
-                     "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
-                     "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
-                     "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
-                     "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
-                     "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
-                     "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
-                     "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
-                     "<INVALID>", "'+'", "'-'", "'*'", "'/'", "':='", "','", 
-                     "';'", "':'", "'='", "'<>'", "'<'", "'<='", "'>='", 
-                     "'>'", "'('", "')'", "'['", "'(.'", "']'", "'.)'", 
+    literalNames = [ "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>",
+                     "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>",
+                     "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>",
+                     "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>",
+                     "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>",
+                     "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>",
+                     "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>",
+                     "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>",
+                     "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>",
+                     "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>",
+                     "<INVALID>", "'+'", "'-'", "'*'", "'/'", "':='", "','",
+                     "';'", "':'", "'='", "'<>'", "'<'", "'<='", "'>='",
+                     "'>'", "'('", "')'", "'['", "'(.'", "']'", "'.)'",
                      "'^'", "'@'", "'.'", "'..'", "'{'", "'}'" ]
 
-    symbolicNames = [ "<INVALID>", "AND", "ARRAY", "BEGIN", "BOOLEAN", "CASE", 
-                      "CHAR", "CHR", "CONST", "DIV", "DO", "DOWNTO", "ELSE", 
-                      "END", "FILE", "FOR", "FUNCTION", "GOTO", "IF", "IN", 
-                      "INTEGER", "LABEL", "MOD", "NIL", "NOT", "OF", "OR", 
-                      "PACKED", "PROCEDURE", "PROGRAM", "REAL", "RECORD", 
-                      "REPEAT", "SET", "THEN", "TO", "TYPE", "UNTIL", "VAR", 
-                      "WHILE", "WITH", "PLUS", "MINUS", "STAR", "SLASH", 
-                      "ASSIGN", "COMMA", "SEMI", "COLON", "EQUAL", "NOT_EQUAL", 
-                      "LT", "LE", "GE", "GT", "LPAREN", "RPAREN", "LBRACK", 
-                      "LBRACK2", "RBRACK", "RBRACK2", "POINTER", "AT", "DOT", 
-                      "DOTDOT", "LCURLY", "RCURLY", "UNIT", "INTERFACE", 
-                      "USES", "STRING", "IMPLEMENTATION", "WS", "COMMENT_1", 
+    symbolicNames = [ "<INVALID>", "AND", "ARRAY", "BEGIN", "BOOLEAN", "CASE",
+                      "CHAR", "CHR", "CONST", "DIV", "DO", "DOWNTO", "ELSE",
+                      "END", "FILE", "FOR", "FUNCTION", "GOTO", "IF", "IN",
+                      "INTEGER", "LABEL", "MOD", "NIL", "NOT", "OF", "OR",
+                      "PACKED", "PROCEDURE", "PROGRAM", "REAL", "RECORD",
+                      "REPEAT", "SET", "THEN", "TO", "TYPE", "UNTIL", "VAR",
+                      "WHILE", "WITH", "PLUS", "MINUS", "STAR", "SLASH",
+                      "ASSIGN", "COMMA", "SEMI", "COLON", "EQUAL", "NOT_EQUAL",
+                      "LT", "LE", "GE", "GT", "LPAREN", "RPAREN", "LBRACK",
+                      "LBRACK2", "RBRACK", "RBRACK2", "POINTER", "AT", "DOT",
+                      "DOTDOT", "LCURLY", "RCURLY", "UNIT", "INTERFACE",
+                      "USES", "STRING", "IMPLEMENTATION", "WS", "COMMENT_1",
                       "COMMENT_2", "IDENT", "STRING_LITERAL", "NUM_INT" ]
 
     RULE_program = 0
@@ -498,31 +498,31 @@ class pascalParser ( Parser ):
     RULE_withStatement = 90
     RULE_recordVariableList = 91
 
-    ruleNames =  [ "program", "programHeading", "identifier", "block", "usesUnitsPart", 
-                   "labelDeclarationPart", "label", "constantDefinitionPart", 
-                   "constantDefinition", "constantChr", "constant", "unsignedNumber", 
-                   "unsignedInteger", "unsignedReal", "sign", "string", 
-                   "typeDefinitionPart", "typeDefinition", "functionType", 
-                   "procedureType", "typeT", "simpleType", "scalarType", 
-                   "subrangeType", "typeIdentifier", "structuredType", "unpackedStructuredType", 
-                   "stringtype", "arrayType", "typeList", "indexType", "componentType", 
-                   "recordType", "fieldList", "fixedPart", "recordSection", 
-                   "variantPart", "tag", "variant", "setType", "baseType", 
-                   "fileType", "pointerType", "variableDeclarationPart", 
-                   "variableDeclaration", "procedureAndFunctionDeclarationPart", 
-                   "procedureOrFunctionDeclaration", "procedureDeclaration", 
-                   "formalParameterList", "formalParameterSection", "parameterGroup", 
-                   "identifierList", "constList", "functionDeclaration", 
-                   "resultType", "statement", "unlabelledStatement", "simpleStatement", 
-                   "assignmentStatement", "variable", "expression", "simpleExpression", 
-                   "term", "signedFactor", "factor", "unsignedConstant", 
-                   "functionDesignator", "parameterList", "setT", "elementList", 
-                   "element", "procedureStatement", "actualParameter", "gotoStatement", 
-                   "emptyStatement", "empty", "structuredStatement", "compoundStatement", 
-                   "statements", "conditionalStatement", "ifStatement", 
-                   "caseStatement", "caseListElement", "repetetiveStatement", 
-                   "whileStatement", "repeatStatement", "forStatement", 
-                   "forList", "initialValue", "finalValue", "withStatement", 
+    ruleNames =  [ "program", "programHeading", "identifier", "block", "usesUnitsPart",
+                   "labelDeclarationPart", "label", "constantDefinitionPart",
+                   "constantDefinition", "constantChr", "constant", "unsignedNumber",
+                   "unsignedInteger", "unsignedReal", "sign", "string",
+                   "typeDefinitionPart", "typeDefinition", "functionType",
+                   "procedureType", "typeT", "simpleType", "scalarType",
+                   "subrangeType", "typeIdentifier", "structuredType", "unpackedStructuredType",
+                   "stringtype", "arrayType", "typeList", "indexType", "componentType",
+                   "recordType", "fieldList", "fixedPart", "recordSection",
+                   "variantPart", "tag", "variant", "setType", "baseType",
+                   "fileType", "pointerType", "variableDeclarationPart",
+                   "variableDeclaration", "procedureAndFunctionDeclarationPart",
+                   "procedureOrFunctionDeclaration", "procedureDeclaration",
+                   "formalParameterList", "formalParameterSection", "parameterGroup",
+                   "identifierList", "constList", "functionDeclaration",
+                   "resultType", "statement", "unlabelledStatement", "simpleStatement",
+                   "assignmentStatement", "variable", "expression", "simpleExpression",
+                   "term", "signedFactor", "factor", "unsignedConstant",
+                   "functionDesignator", "parameterList", "setT", "elementList",
+                   "element", "procedureStatement", "actualParameter", "gotoStatement",
+                   "emptyStatement", "empty", "structuredStatement", "compoundStatement",
+                   "statements", "conditionalStatement", "ifStatement",
+                   "caseStatement", "caseListElement", "repetetiveStatement",
+                   "whileStatement", "repeatStatement", "forStatement",
+                   "forList", "initialValue", "finalValue", "withStatement",
                    "recordVariableList" ]
 
     EOF = Token.EOF
@@ -1150,7 +1150,7 @@ class pascalParser ( Parser ):
                     self.state = 242
                     self.match(pascalParser.SEMI)
                     self.state = 243
-                    self.constantDefinition() 
+                    self.constantDefinition()
                 self.state = 248
                 self._errHandler.sync(self)
                 _alt = self._interp.adaptivePredict(self._input,6,self._ctx)
@@ -1643,7 +1643,7 @@ class pascalParser ( Parser ):
                     self.state = 286
                     self.match(pascalParser.SEMI)
                     self.state = 287
-                    self.typeDefinition() 
+                    self.typeDefinition()
                 self.state = 292
                 self._errHandler.sync(self)
                 _alt = self._interp.adaptivePredict(self._input,9,self._ctx)
@@ -2768,7 +2768,7 @@ class pascalParser ( Parser ):
                     self.state = 397
                     self.match(pascalParser.SEMI)
                     self.state = 398
-                    self.recordSection() 
+                    self.recordSection()
                 self.state = 403
                 self._errHandler.sync(self)
                 _alt = self._interp.adaptivePredict(self._input,23,self._ctx)
@@ -3299,7 +3299,7 @@ class pascalParser ( Parser ):
                     self.state = 450
                     self.match(pascalParser.SEMI)
                     self.state = 451
-                    self.variableDeclaration() 
+                    self.variableDeclaration()
                 self.state = 456
                 self._errHandler.sync(self)
                 _alt = self._interp.adaptivePredict(self._input,28,self._ctx)
@@ -5837,7 +5837,7 @@ class pascalParser ( Parser ):
                     self.state = 722
                     self.match(pascalParser.SEMI)
                     self.state = 723
-                    self.caseListElement() 
+                    self.caseListElement()
                 self.state = 728
                 self._errHandler.sync(self)
                 _alt = self._interp.adaptivePredict(self._input,60,self._ctx)
