@@ -30,6 +30,9 @@ class pascalListener(ParseTreeListener):
     2 - program head Parameters - next var is a series of parameters
     3 - use statement - next var is a series of import names to find locally or externally
     4 - Function is currently being processed.
+    5 - Entered parameter section
+    6 - Function / procedure name write
+    7 - Variable declaration entered
     '''
     #init function to set all prelimenary variables
     def __init__(self, ParseTreeListener, filename):
@@ -79,6 +82,9 @@ class pascalListener(ParseTreeListener):
             self._PARAMETERS.append(ctx.getText())
         elif (self._CURRENTFLAG == 6):
             self._BUILD._write_function(self._BUILD, ctx.getText())
+            self._CURRENTFLAG = 0
+        elif (self._CURRENTFLAG == 7):
+            self._BUILD._write_(self._BUILD, ctx.getText())
             self._CURRENTFLAG = 0
         pass
 
@@ -412,7 +418,6 @@ class pascalListener(ParseTreeListener):
 
     # Enter a parse tree produced by pascalParser#variableDeclarationPart.
     def enterVariableDeclarationPart(self, ctx: pascalParser.VariableDeclarationPartContext):
-        self._BUILD._write_variable_declaration(self._BUILD, ctx.getText())
         pass
 
     # Exit a parse tree produced by pascalParser#variableDeclarationPart.
@@ -421,10 +426,16 @@ class pascalListener(ParseTreeListener):
 
     # Enter a parse tree produced by pascalParser#variableDeclaration.
     def enterVariableDeclaration(self, ctx: pascalParser.VariableDeclarationContext):
+        self._CURRENTFLAG = 7
+        if (self._LASTSTRUCTURE is 0):
+            self._BUILD._write_variable_declaration(self._BUILD, True)
+        else:
+            self._BUILD._write_variable_declaration(self._BUILD, False)
         pass
 
     # Exit a parse tree produced by pascalParser#variableDeclaration.
     def exitVariableDeclaration(self, ctx: pascalParser.VariableDeclarationContext):
+        self._CURRENTFLAG=0
         pass
 
     # Enter a parse tree produced by pascalParser#procedureAndFunctionDeclarationPart.

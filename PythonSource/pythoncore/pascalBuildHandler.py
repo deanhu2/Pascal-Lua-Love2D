@@ -44,17 +44,25 @@ class pascalBuildHandler(object):
         pass
 
     # Writes a function header to the file
-
     def _write_function(self, name):  # _PARAMETERS):
         self._LAST_FILE.write('\nfunction ' + name + " ")
         pass
 
-    def _write_variable_declaration(self, name):
-        self._LAST_FILE.write('\n' + name)
+    #simply output a standard piece of text
+    def _write_(self, text):
+        self._LAST_FILE.write(text)
+        pass
+
+    #writes a new variable to file, either local or global
+    def _write_variable_declaration(self, isLocal):
+        if (isLocal):
+            self._LAST_FILE.write('\n ' + 'local ')
+        else:
+            self._LAST_FILE.write('\n')
         pass
 
     def _write_function_end(self):
-        self._LAST_FILE.write('\nend')
+        self._LAST_FILE.write('\nend\n')
         pass
     # close the last opened file
 
