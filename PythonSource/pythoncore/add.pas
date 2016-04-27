@@ -11,12 +11,12 @@ type
   intarray = array [1..size] of integer;
  
 var
-   aaaaaaa: integer;
-   a: intarray;
+   a1: integer;
+   a2: intarray;
    
-Function PythagorasFunc(A: Real; B: Real) : Real; {The pythagoras theorem}
+Function PythagorasFunc(D: Real; B: Real) : Real; {The pythagoras theorem}
 Begin
-	PythagorasFunc := SQRT(A*A + B*B);
+	PythagorasFuncD := SQRT(A1*A2 + B1*B2);
 	{Output: Assign the procedure name to the value.
 	If you forget to assign the function to the value,
 	you will get a trash value from the memory}
@@ -26,7 +26,7 @@ End;
  
 procedure adder(var a,b : intarray);
 var
-   bbbbbbbb: integer;
+   b3: integer;
  
 begin
   for i := 1 to size do

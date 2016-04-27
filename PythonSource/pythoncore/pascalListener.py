@@ -33,6 +33,7 @@ class pascalListener(ParseTreeListener):
     5 - Entered parameter section
     6 - Function / procedure name write
     7 - Variable declaration entered
+    8 - Current entered variable
     '''
     #init function to set all prelimenary variables
     def __init__(self, ParseTreeListener, filename):
@@ -567,6 +568,10 @@ class pascalListener(ParseTreeListener):
 
     # Enter a parse tree produced by pascalParser#variable.
     def enterVariable(self, ctx: pascalParser.VariableContext):
+        #implement a variable lookup table here later for type checking
+        self._CURRENTFLAG = 8
+        self._BUILD._write_(self._BUILD, ctx.getText())
+        #replace with a new build method to check table
         pass
 
     # Exit a parse tree produced by pascalParser#variable.

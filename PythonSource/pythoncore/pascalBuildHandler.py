@@ -50,7 +50,7 @@ class pascalBuildHandler(object):
 
     #simply output a standard piece of text
     def _write_(self, text):
-        self._LAST_FILE.write(text)
+        self._LAST_FILE.write(text+" ")
         pass
 
     #writes a new variable to file, either local or global
