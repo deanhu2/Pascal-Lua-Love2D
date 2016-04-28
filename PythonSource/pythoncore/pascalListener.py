@@ -34,6 +34,7 @@ class pascalListener(ParseTreeListener):
     6 - Function / procedure name write
     7 - Variable declaration entered
     8 - Current entered variable
+    9 - Enter a expression structure
     '''
     #init function to set all prelimenary variables
     def __init__(self, ParseTreeListener, filename):
@@ -576,10 +577,12 @@ class pascalListener(ParseTreeListener):
 
     # Exit a parse tree produced by pascalParser#variable.
     def exitVariable(self, ctx: pascalParser.VariableContext):
+        self._CURRENTFLAG = 0
         pass
 
     # Enter a parse tree produced by pascalParser#expression.
     def enterExpression(self, ctx: pascalParser.ExpressionContext):
+        self._CURRENTFLAG = 9
         pass
 
     # Exit a parse tree produced by pascalParser#expression.

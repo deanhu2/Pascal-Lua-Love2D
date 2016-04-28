@@ -6,7 +6,6 @@
 
 import errno
 import os
-import sys
 
 
 class pascalBuildHandler(object):
@@ -15,7 +14,7 @@ class pascalBuildHandler(object):
     _BUILD_EXTENSION = '.lua'
     _LAST_FILE = None
     _LAST_DIRECTORY = None
-
+    _OUTPUT_LANGUAGE = 1
     # constructor
 
     def __init__(self):  # this method creates the class object.
@@ -23,6 +22,7 @@ class pascalBuildHandler(object):
         self._BUILD_EXTENSION = '.lua'
         self._LAST_FILE = None
         self._Last_DIRECTORY = None
+        self._OUTPUT_LANGUAGE = 1
         pass
 
     # creates an empty output file
