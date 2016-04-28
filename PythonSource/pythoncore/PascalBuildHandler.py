@@ -8,7 +8,7 @@ import errno
 import os
 
 
-class pascalBuildHandler(object):
+class PascalBuildHandler(object):
 
     _CUSTOM__PATH = False
     _BUILD_EXTENSION = '.lua'

@@ -1,7 +1,7 @@
 # Generated from pascal.g4 by ANTLR 4.5.3
 from antlr4 import *
 import pascalLoveParser
-from pascalBuildHandler import pascalBuildHandler
+from PascalBuildHandler import PascalBuildHandler
 from pascalUseHandler import pascalUseHandler
 if __name__ is not None and "." in __name__:
     from .pascalParser import pascalParser
@@ -17,7 +17,7 @@ else:
 class pascalListener(ParseTreeListener):
 
     _PARSER = pascalLoveParser
-    _BUILD = pascalBuildHandler
+    _BUILD = PascalBuildHandler
     _USEHANDLER = pascalUseHandler
     _CURRENTFLAG = 0
     _PARAMETERS = []
@@ -39,7 +39,7 @@ class pascalListener(ParseTreeListener):
     #init function to set all prelimenary variables
     def __init__(self, ParseTreeListener, filename):
         self._PARSER = pascalLoveParser
-        self._BUILD = pascalBuildHandler
+        self._BUILD = PascalBuildHandler
         self._USEHANDLER = pascalUseHandler
         self._CURRENTFLAG = 0
         self._PARAMETERS = []
