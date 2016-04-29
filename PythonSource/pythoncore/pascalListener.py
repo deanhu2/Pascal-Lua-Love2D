@@ -68,24 +68,24 @@ class pascalListener(ParseTreeListener):
 
     # Enter a parse tree produced by pascalParser#identifier.
     def enterIdentifier(self, ctx: pascalParser.IdentifierContext):
-        if(self._CURRENTFLAG == 1):
+        if self._CURRENTFLAG == 1:
             self._CURRENTFLAG = 2
             self._BUILD._create_output_dir(self._BUILD, ctx.getText())
             self._BUILD._create_file(self._BUILD, ctx.getText())
-        elif (self._CURRENTFLAG == 2):
+        elif self._CURRENTFLAG == 2:
             print((ctx.getText()))
-        elif (self._CURRENTFLAG == 3):
+        elif self._CURRENTFLAG == 3:
             self._USEHANDLER.find_module(self, ctx.getText())
         elif (self._CURRENTFLAG == 4):
             self._BUILD._write_function(self._BUILD, ctx.getText())
             self._CURRENTFLAG = 0
             pass
-        elif (self._CURRENTFLAG == 5):
+        elif self._CURRENTFLAG == 5:
             self._PARAMETERS.append(ctx.getText())
-        elif (self._CURRENTFLAG == 6):
+        elif self._CURRENTFLAG == 6:
             self._BUILD._write_function(self._BUILD, ctx.getText())
             self._CURRENTFLAG = 0
-        elif (self._CURRENTFLAG == 7):
+        elif self._CURRENTFLAG == 7:
             self._BUILD._write_(self._BUILD, ctx.getText())
             self._CURRENTFLAG = 0
         pass
@@ -429,7 +429,7 @@ class pascalListener(ParseTreeListener):
     # Enter a parse tree produced by pascalParser#variableDeclaration.
     def enterVariableDeclaration(self, ctx: pascalParser.VariableDeclarationContext):
         self._CURRENTFLAG = 7
-        if (self._LASTSTRUCTURE is 0):
+        if self._LASTSTRUCTURE is 0:
             self._BUILD._write_variable_declaration(self._BUILD, True)
         else:
             self._BUILD._write_variable_declaration(self._BUILD, False)
@@ -513,7 +513,7 @@ class pascalListener(ParseTreeListener):
 
     # Enter a parse tree produced by pascalParser#functionDeclaration.
     def enterFunctionDeclaration(self, ctx: pascalParser.FunctionDeclarationContext):
-        if(ctx.formalParameterList is None):
+        if ctx.formalParameterList is None:
             print('is none')
         self._CURRENTFLAG = 4 #set that a function is being processed
         self._LASTSTRUCTURE = 4 #set last used for recording purposes
