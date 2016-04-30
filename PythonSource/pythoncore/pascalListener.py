@@ -36,6 +36,7 @@ class pascalListener(ParseTreeListener):
     8 - Current entered variable
     9 - Enter a expression structure
     '''
+
     #init function to set all prelimenary variables
     def __init__(self, ParseTreeListener, filename):
         self._PARSER = pascalLoveParser
@@ -73,7 +74,8 @@ class pascalListener(ParseTreeListener):
             self._BUILD._create_output_dir(self._BUILD, ctx.getText())
             self._BUILD._create_file(self._BUILD, ctx.getText())
         elif self._CURRENTFLAG == 2:
-            print((ctx.getText()))
+            #print((ctx.getText()))
+            pass
         elif self._CURRENTFLAG == 3:
             self._USEHANDLER.find_module(self, ctx.getText())
         elif (self._CURRENTFLAG == 4):
@@ -485,6 +487,7 @@ class pascalListener(ParseTreeListener):
     # Exit a parse tree produced by pascalParser#formalParameterSection.
     def exitFormalParameterSection(self, ctx: pascalParser.FormalParameterSectionContext):
         #self._CURRENTFLAG=self._LASTSTRUCTURE
+        self._BUILD._write_(self._BUILD,"\n") #write out new line to for bodies
         pass
 
     # Enter a parse tree produced by pascalParser#parameterGroup.
