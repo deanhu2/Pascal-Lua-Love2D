@@ -67,6 +67,7 @@ class PascalBuildHandler(object):
     # close the last opened file
 
     def _build_file(self):
+        self._write_function_end(self)
         self._LAST_FILE.close()
 
     # create a directory
