@@ -2,6 +2,7 @@ from pascalLexer import pascalLexer
 from pascalListener import pascalListener
 from pascalParser import pascalParser
 from antlr4 import *
+import sys
 
 class pascalLoveParser(object):
     """
@@ -12,18 +13,19 @@ def __init__(self): # this method creates the class object.
     pass
 		
 		
-
+#function used to parse an input file for translation
 def parse(argv):
-    #input = FileStream(argv[1])
-    if len(argv)==1:
-        filename=argv[0]
-    input = FileStream("add.pas")
-    lexer = pascalLexer(input)
-    stream = CommonTokenStream(lexer)
-    parser = pascalParser(stream)
-    tree = parser.program()
-    printer = pascalListener(tree,filename)
-    walker = ParseTreeWalker()
-    walker.walk(printer, tree)
+    if len(sys.argv) > 1:
+        input = FileStream(argv[1])
+        lexer = pascalLexer(input)
+        stream = CommonTokenStream(lexer)
+        parser = pascalParser(stream)
+        tree = parser.program()
+        printer = pascalListener(tree,input)
+        walker = ParseTreeWalker()
+        walker.walk(printer, tree)
+    else:
+        print('Error : Expected a valid .pas or .pua input file parameter but got none.')
+        print('Format : Python3 main.py <inputfile>')
 
 		
