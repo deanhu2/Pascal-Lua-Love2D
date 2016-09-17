@@ -55,11 +55,20 @@ class PascalBuildHandler(object):
 
     #writes a new variable to file, either local or global
     def _write_variable_declaration(self, isLocal):
-        if (isLocal):
+        if isLocal:
             self._LAST_FILE.write('\n ' + 'local ')
         else:
-            self._LAST_FILE.write('\n')
+        #self._LAST_FILE.write('\n')
+            pass
+
+    def _write_constant(self,name):
+        self._LAST_FILE.write('\nlocal '+name)
         pass
+
+    def _write_variable(self):
+        self._LAST_FILE.write('\nvar ')
+        pass
+
 
     def _write_function_end(self):
         self._LAST_FILE.write('\nend\n')
@@ -67,7 +76,7 @@ class PascalBuildHandler(object):
     # close the last opened file
 
     def _build_file(self):
-        self._write_function_end(self)
+        #  self._write_function_end()
         self._LAST_FILE.close()
 
     # create a directory

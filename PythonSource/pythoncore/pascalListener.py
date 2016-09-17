@@ -3,6 +3,7 @@ from antlr4 import *
 import pascalLoveParser
 from PascalBuildHandler import PascalBuildHandler
 from pascalUseHandler import pascalUseHandler
+
 if __name__ is not None and "." in __name__:
     from .pascalParser import pascalParser
 else:
@@ -15,7 +16,6 @@ else:
 
 
 class pascalListener(ParseTreeListener):
-
     _PARSER = pascalLoveParser
     _BUILD = PascalBuildHandler
     _USEHANDLER = pascalUseHandler
@@ -37,7 +37,7 @@ class pascalListener(ParseTreeListener):
     9 - Enter a expression structure
     '''
 
-    #init function to set all prelimenary variables
+    # init function to set all prelimenary variables
     def __init__(self, ParseTreeListener, filename):
         self._PARSER = pascalLoveParser
         self._BUILD = PascalBuildHandler
@@ -46,28 +46,26 @@ class pascalListener(ParseTreeListener):
         self._PARAMETERS = []
         self._LASTSTRUCTURE = None
 
-
     # Enter a parse tree produced by pascalParser#program.
     def enterProgram(self, ctx: pascalParser.ProgramContext):
         pass
 
     # Exit a parse tree produced by pascalParser#program.
     def exitProgram(self, ctx: pascalParser.ProgramContext):
-        #self._BUILD._write_function_end(self)
+        #self._BUILD._write_function_end(self._BUILD)
         pass
-
 
     # Enter a parse tree produced by pascalParser#programHeading.
     def enterProgramHeading(self, ctx: pascalParser.ProgramHeadingContext):
         self._CURRENTFLAG = 1
-
+        print((ctx.getText()))
         pass
 
     # Exit a parse tree produced by pascalParser#programHeading.
     def exitProgramHeading(self, ctx: pascalParser.ProgramHeadingContext):
         self._CURRENTFLAG = 0
-        self._BUILD._write_function(self._BUILD, ctx.getText())
-        #self._BUILD._build_file(self)
+        #self._BUILD._write_function(self._BUILD, ctx.getText())
+        # self._BUILD._build_file(self)
         pass
 
     # Enter a parse tree produced by pascalParser#identifier.
@@ -77,7 +75,7 @@ class pascalListener(ParseTreeListener):
             self._BUILD._create_output_dir(self._BUILD, ctx.getText())
             self._BUILD._create_file(self._BUILD, ctx.getText())
         elif self._CURRENTFLAG == 2:
-            #print((ctx.getText()))
+            # print((ctx.getText()))
             pass
         elif self._CURRENTFLAG == 3:
             self._USEHANDLER.find_module(self, ctx.getText())
@@ -110,7 +108,7 @@ class pascalListener(ParseTreeListener):
     # Enter a parse tree produced by pascalParser#usesUnitsPart.
     def enterUsesUnitsPart(self, ctx: pascalParser.UsesUnitsPartContext):
         self._CURRENTFLAG = 2
-        #print(ctx.getText());
+        # print(ctx.getText());
         pass
 
     # Exit a parse tree produced by pascalParser#usesUnitsPart.
@@ -144,12 +142,12 @@ class pascalListener(ParseTreeListener):
 
     # Enter a parse tree produced by pascalParser#constantDefinition.
     def enterConstantDefinition(self, ctx: pascalParser.ConstantDefinitionContext):
+        self._BUILD._write_constant(self._BUILD, ctx.getText())
         pass
 
     # Exit a parse tree produced by pascalParser#constantDefinition.
     def exitConstantDefinition(self, ctx: pascalParser.ConstantDefinitionContext):
         pass
-
 
     # Enter a parse tree produced by pascalParser#constantChr.
     def enterConstantChr(self, ctx: pascalParser.ConstantChrContext):
@@ -433,6 +431,7 @@ class pascalListener(ParseTreeListener):
 
     # Enter a parse tree produced by pascalParser#variableDeclaration.
     def enterVariableDeclaration(self, ctx: pascalParser.VariableDeclarationContext):
+        self._BUILD._write_variable(self._BUILD)
         self._CURRENTFLAG = 7
         if self._LASTSTRUCTURE is 0:
             self._BUILD._write_variable_declaration(self._BUILD, True)
@@ -442,7 +441,7 @@ class pascalListener(ParseTreeListener):
 
     # Exit a parse tree produced by pascalParser#variableDeclaration.
     def exitVariableDeclaration(self, ctx: pascalParser.VariableDeclarationContext):
-        self._CURRENTFLAG=0
+        self._CURRENTFLAG = 0
         pass
 
     # Enter a parse tree produced by pascalParser#procedureAndFunctionDeclarationPart.
@@ -463,19 +462,19 @@ class pascalListener(ParseTreeListener):
 
     # Enter a parse tree produced by pascalParser#procedureDeclaration.
     def enterProcedureDeclaration(self, ctx: pascalParser.ProcedureDeclarationContext):
-        self._CURRENTFLAG = 6 #set that a function is being processed
-        self._LASTSTRUCTURE = 6 #set last used for recording purposes
+        self._CURRENTFLAG = 6  # set that a function is being processed
+        self._LASTSTRUCTURE = 6  # set last used for recording purposes
         pass
 
     # Exit a parse tree produced by pascalParser#procedureDeclaration.
     def exitProcedureDeclaration(self, ctx: pascalParser.ProcedureDeclarationContext):
         self._BUILD._write_function_end(self._BUILD)
-        self._LASTSTRUCTURE = 0 #set last used for recording purposes
+        self._LASTSTRUCTURE = 0  # set last used for recording purposes
         pass
 
     # Enter a parse tree produced by pascalParser#formalParameterList.
     def enterFormalParameterList(self, ctx: pascalParser.FormalParameterListContext):
-        #self._LASTSTRUCTURE = 0 #set last used for recording purposes
+        # self._LASTSTRUCTURE = 0 #set last used for recording purposes
         pass
 
     # Exit a parse tree produced by pascalParser#formalParameterList.
@@ -484,13 +483,13 @@ class pascalListener(ParseTreeListener):
 
     # Enter a parse tree produced by pascalParser#formalParameterSection.
     def enterFormalParameterSection(self, ctx: pascalParser.FormalParameterSectionContext):
-        self._CURRENTFLAG=5
+        self._CURRENTFLAG = 5
         pass
 
     # Exit a parse tree produced by pascalParser#formalParameterSection.
     def exitFormalParameterSection(self, ctx: pascalParser.FormalParameterSectionContext):
-        self._CURRENTFLAG=self._LASTSTRUCTURE
-        self._BUILD._write_(self._BUILD,"\n") #write out new line to for bodies
+        self._CURRENTFLAG = self._LASTSTRUCTURE
+        self._BUILD._write_(self._BUILD, "\n")  # write out new line to for bodies
         pass
 
     # Enter a parse tree produced by pascalParser#parameterGroup.
@@ -521,16 +520,17 @@ class pascalListener(ParseTreeListener):
     def enterFunctionDeclaration(self, ctx: pascalParser.FunctionDeclarationContext):
         if ctx.formalParameterList is None:
             print('is none')
-        self._CURRENTFLAG = 4 #set that a function is being processed
-        self._LASTSTRUCTURE = 4 #set last used for recording purposes
+        self._CURRENTFLAG = 4  # set that a function is being processed
+        self._LASTSTRUCTURE = 4  # set last used for recording purposes
         pass
 
     # Exit a parse tree produced by pascalParser#functionDeclaration.
     def exitFunctionDeclaration(self, ctx: pascalParser.FunctionDeclarationContext):
-        self._CURRENTFLAG=0
-        #self._BUILD._write_function(self._BUILD,"add")
-        del self._PARAMETERS[:] #empty any stored parameters from function
-        #self._BUILD._write_function_end(self._BUILD)
+        self._CURRENTFLAG = 0
+        # self._BUILD._write_function(self._BUILD,"add")
+        del self._PARAMETERS[:]  # empty any stored parameters from function
+        # self._BUILD._write_function_end(self._BUILD)
+        self._BUILD._write_function_end(self._BUILD)
         pass
 
     # Enter a parse tree produced by pascalParser#resultType.
@@ -575,10 +575,10 @@ class pascalListener(ParseTreeListener):
 
     # Enter a parse tree produced by pascalParser#variable.
     def enterVariable(self, ctx: pascalParser.VariableContext):
-        #implement a variable lookup table here later for type checking
+        # implement a variable lookup table here later for type checking
         self._CURRENTFLAG = 8
         self._BUILD._write_(self._BUILD, ctx.getText())
-        #replace with a new build method to check table
+        # replace with a new build method to check table
         pass
 
     # Exit a parse tree produced by pascalParser#variable.
@@ -683,7 +683,6 @@ class pascalListener(ParseTreeListener):
     def exitProcedureStatement(self, ctx: pascalParser.ProcedureStatementContext):
         pass
 
-
     # Enter a parse tree produced by pascalParser#actualParameter.
     def enterActualParameter(self, ctx: pascalParser.ActualParameterContext):
         pass
@@ -730,8 +729,8 @@ class pascalListener(ParseTreeListener):
 
     # Exit a parse tree produced by pascalParser#compoundStatement.
     def exitCompoundStatement(self, ctx: pascalParser.CompoundStatementContext):
-        #if self._CURRENTFLAG == 4 or self._CURRENTFLAG == 6:
-        self._BUILD._write_function_end(self._BUILD)
+        # if self._CURRENTFLAG == 4 or self._CURRENTFLAG == 6:
+        #  self._BUILD._write_function_end(self._BUILD)
         pass
 
     # Enter a parse tree produced by pascalParser#statements.
@@ -845,5 +844,3 @@ class pascalListener(ParseTreeListener):
     # Exit a parse tree produced by pascalParser#recordVariableList.
     def exitRecordVariableList(self, ctx: pascalParser.RecordVariableListContext):
         pass
-
-
