@@ -35,7 +35,8 @@ class pascalListener(ParseTreeListener):
     7 - Variable declaration entered
     8 - Current entered variable
     9 - Enter a expression structure
-    10 -Constant variable flag
+    10-Constant variable flag
+    11-Unalabelled statement's
     '''
 
     # init function to set all prelimenary variables
@@ -730,11 +731,13 @@ class pascalListener(ParseTreeListener):
 
     # Enter a parse tree produced by pascalParser#compoundStatement.
     def enterCompoundStatement(self, ctx: pascalParser.CompoundStatementContext):
+        self._CURRENTFLAG = 11
+        self._BUILD._write_unlabeled(self._BUILD);
         pass
 
     # Exit a parse tree produced by pascalParser#compoundStatement.
     def exitCompoundStatement(self, ctx: pascalParser.CompoundStatementContext):
-        # if self._CURRENTFLAG == 4 or self._CURRENTFLAG == 6:
+        self._CURRENTFLAG = 0
         #  self._BUILD._write_function_end(self._BUILD)
         pass
 

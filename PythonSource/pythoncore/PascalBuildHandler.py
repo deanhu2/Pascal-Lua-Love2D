@@ -65,6 +65,9 @@ class PascalBuildHandler(object):
         self._LAST_FILE.write('\nlocal ')
         pass
 
+    def _write_unlabeled(self):
+        self._LAST_FILE.write('\nblock ')
+        pass
     def _write_variable(self):
         self._LAST_FILE.write('\nvar ')
         pass
