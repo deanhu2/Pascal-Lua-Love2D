@@ -61,8 +61,8 @@ class PascalBuildHandler(object):
         #self._LAST_FILE.write('\n')
             pass
 
-    def _write_constant(self,name):
-        self._LAST_FILE.write('\nlocal '+name)
+    def _write_constant(self):
+        self._LAST_FILE.write('\nlocal ')
         pass
 
     def _write_variable(self):

@@ -35,6 +35,7 @@ class pascalListener(ParseTreeListener):
     7 - Variable declaration entered
     8 - Current entered variable
     9 - Enter a expression structure
+    10 -Constant variable flag
     '''
 
     # init function to set all prelimenary variables
@@ -58,7 +59,7 @@ class pascalListener(ParseTreeListener):
     # Enter a parse tree produced by pascalParser#programHeading.
     def enterProgramHeading(self, ctx: pascalParser.ProgramHeadingContext):
         self._CURRENTFLAG = 1
-        print((ctx.getText()))
+        #print((ctx.getText()))
         pass
 
     # Exit a parse tree produced by pascalParser#programHeading.
@@ -89,6 +90,9 @@ class pascalListener(ParseTreeListener):
             self._BUILD._write_function(self._BUILD, ctx.getText())
             self._CURRENTFLAG = 0
         elif self._CURRENTFLAG == 7:
+            self._BUILD._write_(self._BUILD, ctx.getText())
+            self._CURRENTFLAG = 0
+        elif self._CURRENTFLAG == 10:
             self._BUILD._write_(self._BUILD, ctx.getText())
             self._CURRENTFLAG = 0
         pass
@@ -142,7 +146,8 @@ class pascalListener(ParseTreeListener):
 
     # Enter a parse tree produced by pascalParser#constantDefinition.
     def enterConstantDefinition(self, ctx: pascalParser.ConstantDefinitionContext):
-        self._BUILD._write_constant(self._BUILD, ctx.getText())
+        self._CURRENTFLAG = 10
+        self._BUILD._write_constant(self._BUILD)
         pass
 
     # Exit a parse tree produced by pascalParser#constantDefinition.
