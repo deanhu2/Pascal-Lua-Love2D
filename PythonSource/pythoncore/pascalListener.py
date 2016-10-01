@@ -108,6 +108,7 @@ class pascalListener(ParseTreeListener):
 
     # Exit a parse tree produced by pascalParser#block.
     def exitBlock(self, ctx: pascalParser.BlockContext):
+        self._CURRENTFLAG = 0
         pass
 
     # Enter a parse tree produced by pascalParser#usesUnitsPart.
@@ -153,6 +154,7 @@ class pascalListener(ParseTreeListener):
 
     # Exit a parse tree produced by pascalParser#constantDefinition.
     def exitConstantDefinition(self, ctx: pascalParser.ConstantDefinitionContext):
+        self._CURRENTFLAG = 0
         pass
 
     # Enter a parse tree produced by pascalParser#constantChr.
@@ -476,6 +478,7 @@ class pascalListener(ParseTreeListener):
     def exitProcedureDeclaration(self, ctx: pascalParser.ProcedureDeclarationContext):
         self._BUILD._write_function_end(self._BUILD)
         self._LASTSTRUCTURE = 0  # set last used for recording purposes
+        self._CURRENTFLAG = 0
         pass
 
     # Enter a parse tree produced by pascalParser#formalParameterList.
@@ -603,6 +606,7 @@ class pascalListener(ParseTreeListener):
 
     # Enter a parse tree produced by pascalParser#simpleExpression.
     def enterSimpleExpression(self, ctx: pascalParser.SimpleExpressionContext):
+        self._BUILD._write_function_expression(self._BUILD,ctx.getText())
         pass
 
     # Exit a parse tree produced by pascalParser#simpleExpression.
@@ -731,8 +735,9 @@ class pascalListener(ParseTreeListener):
 
     # Enter a parse tree produced by pascalParser#compoundStatement.
     def enterCompoundStatement(self, ctx: pascalParser.CompoundStatementContext):
-        self._CURRENTFLAG = 11
-        self._BUILD._write_unlabeled(self._BUILD);
+        if self._CURRENTFLAG ==0:
+            self._CURRENTFLAG = 11
+            self._BUILD._write_compoundStatement(self._BUILD);
         pass
 
     # Exit a parse tree produced by pascalParser#compoundStatement.
@@ -807,6 +812,7 @@ class pascalListener(ParseTreeListener):
 
     # Enter a parse tree produced by pascalParser#forStatement.
     def enterForStatement(self, ctx: pascalParser.ForStatementContext):
+        self._BUILD._write_forLoop(self._BUILD);
         pass
 
     # Exit a parse tree produced by pascalParser#forStatement.

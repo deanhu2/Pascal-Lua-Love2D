@@ -4,14 +4,17 @@ var a1
 var a2 
 function PythagorasFunc 
  
- 
-block PythagorasFuncD A1 A2 B1 B2 
+ PythagorasFuncD SQRT(A1*A2+B1*B2)A1*A2+B1*B2A1 A2 B1 B2 
 end
 
 function adder 
  
 var b3 
-block size b[i] i a[i] i b[i] i 
+block 
+for 1sizesize b[i] ii a[i]+b[i]a[i] ii b[i] ii 
 end
 
-block size a[i] i i size a[i] i a a size a[i] i 
+block 
+for 1sizesize a[i] ii ii 'The array before call to adder:'
+for 1sizesize a[i]a[i] ii aa aa 'The array after call to adder:'
+for 1sizesize a[i]a[i] ii 

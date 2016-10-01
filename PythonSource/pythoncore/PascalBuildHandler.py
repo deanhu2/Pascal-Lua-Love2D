@@ -65,13 +65,21 @@ class PascalBuildHandler(object):
         self._LAST_FILE.write('\nlocal ')
         pass
 
-    def _write_unlabeled(self):
+    def _write_forLoop(self):
+        self._LAST_FILE.write('\nfor ')
+        pass
+
+    def _write_compoundStatement(self):
         self._LAST_FILE.write('\nblock ')
         pass
+
     def _write_variable(self):
         self._LAST_FILE.write('\nvar ')
         pass
 
+    def _write_function_expression(self,expression):
+        self._LAST_FILE.write(expression)
+        pass
 
     def _write_function_end(self):
         self._LAST_FILE.write('\nend\n')
