@@ -69,6 +69,10 @@ class PascalBuildHandler(object):
         self._LAST_FILE.write('\nfor ')
         pass
 
+    def _write_int(self,number):
+        self._LAST_FILE.write(' '+number+" ")
+        pass
+
     def _write_compoundStatement(self):
         self._LAST_FILE.write('\nblock ')
         pass
@@ -78,7 +82,7 @@ class PascalBuildHandler(object):
         pass
 
     def _write_function_expression(self,expression):
-        self._LAST_FILE.write(expression)
+        #  self._LAST_FILE.write(expression)
         pass
 
     def _write_function_end(self):

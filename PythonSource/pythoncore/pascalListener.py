@@ -183,6 +183,7 @@ class pascalListener(ParseTreeListener):
 
     # Enter a parse tree produced by pascalParser#unsignedInteger.
     def enterUnsignedInteger(self, ctx: pascalParser.UnsignedIntegerContext):
+        self._BUILD._write_int(self._BUILD,ctx.getText())
         pass
 
     # Exit a parse tree produced by pascalParser#unsignedInteger.
