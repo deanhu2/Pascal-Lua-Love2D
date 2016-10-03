@@ -61,8 +61,12 @@ class PascalBuildHandler(object):
         #self._LAST_FILE.write('\n')
             pass
 
-    def _write_constant(self):
-        self._LAST_FILE.write('\nlocal ')
+    def _write_constant(self, ctx):
+        self._LAST_FILE.write('\nlocal ' + ctx.getChild(0).getText() + ' ' + ctx.getChild(1).getText() + ' ')
+        pass
+
+    def _write_constant_exit(self):
+        self._LAST_FILE.write('\n')
         pass
 
     def _write_forLoop(self):

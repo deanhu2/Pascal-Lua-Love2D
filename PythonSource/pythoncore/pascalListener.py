@@ -1,7 +1,7 @@
 # Generated from pascal.g4 by ANTLR 4.5.3
-from antlr4 import *
 import pascalLoveParser
 from PascalBuildHandler import PascalBuildHandler
+from antlr4 import *
 from pascalUseHandler import pascalUseHandler
 
 if __name__ is not None and "." in __name__:
@@ -94,7 +94,7 @@ class pascalListener(ParseTreeListener):
             self._BUILD._write_(self._BUILD, ctx.getText())
             self._CURRENTFLAG = 0
         elif self._CURRENTFLAG == 10:
-            self._BUILD._write_(self._BUILD, ctx.getText())
+            # self._BUILD._write_(self._BUILD, ctx.getText())
             self._CURRENTFLAG = 0
         pass
 
@@ -149,12 +149,14 @@ class pascalListener(ParseTreeListener):
     # Enter a parse tree produced by pascalParser#constantDefinition.
     def enterConstantDefinition(self, ctx: pascalParser.ConstantDefinitionContext):
         self._CURRENTFLAG = 10
-        self._BUILD._write_constant(self._BUILD)
+        self._BUILD._write_constant(self._BUILD, ctx)
+        #print(ctx.getChild(0).getText())
         pass
 
     # Exit a parse tree produced by pascalParser#constantDefinition.
     def exitConstantDefinition(self, ctx: pascalParser.ConstantDefinitionContext):
         self._CURRENTFLAG = 0
+        self._BUILD._write_constant_exit(self._BUILD)
         pass
 
     # Enter a parse tree produced by pascalParser#constantChr.
