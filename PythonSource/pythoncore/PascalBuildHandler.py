@@ -50,7 +50,7 @@ class PascalBuildHandler(object):
 
     #simply output a standard piece of text
     def _write_(self, text):
-        self._LAST_FILE.write(text+" ")
+        self._LAST_FILE.write("" + text + " ")
         pass
 
     #writes a new variable to file, either local or global
@@ -82,7 +82,7 @@ class PascalBuildHandler(object):
         pass
 
     def _write_variable(self):
-        self._LAST_FILE.write('\nvar ')
+        self._LAST_FILE.write('\n  -- global variable ')
         pass
 
     def _write_function_expression(self,expression):
