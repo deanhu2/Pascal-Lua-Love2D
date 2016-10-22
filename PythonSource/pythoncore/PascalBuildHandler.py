@@ -78,11 +78,11 @@ class PascalBuildHandler(object):
         pass
 
     def _write_compoundStatement(self):
-        self._LAST_FILE.write('\nblock ')
+        # self._LAST_FILE.write('\nblock ')
         pass
 
     def _write_variable(self):
-        self._LAST_FILE.write('\n  -- global variable ')
+        self._LAST_FILE.write('\n-- global variable ')
         pass
 
     def _write_function_expression(self,expression):
@@ -90,7 +90,7 @@ class PascalBuildHandler(object):
         pass
 
     def _write_function_end(self):
-        self._LAST_FILE.write('\nend\n')
+        self._LAST_FILE.write('\n\nend\n')
         pass
     # close the last opened file
 

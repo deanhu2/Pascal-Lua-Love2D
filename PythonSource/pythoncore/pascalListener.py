@@ -487,21 +487,24 @@ class pascalListener(ParseTreeListener):
     # Enter a parse tree produced by pascalParser#formalParameterList.
     def enterFormalParameterList(self, ctx: pascalParser.FormalParameterListContext):
         # self._LASTSTRUCTURE = 0 #set last used for recording purposes
+        self._BUILD._write_(self._BUILD, "(")  # write out new line to for bodies
         pass
 
     # Exit a parse tree produced by pascalParser#formalParameterList.
     def exitFormalParameterList(self, ctx: pascalParser.FormalParameterListContext):
+        self._BUILD._write_(self._BUILD, ")\n")  # write out new line to for bodies
         pass
 
     # Enter a parse tree produced by pascalParser#formalParameterSection.
     def enterFormalParameterSection(self, ctx: pascalParser.FormalParameterSectionContext):
         self._CURRENTFLAG = 5
+
         pass
 
     # Exit a parse tree produced by pascalParser#formalParameterSection.
     def exitFormalParameterSection(self, ctx: pascalParser.FormalParameterSectionContext):
         self._CURRENTFLAG = self._LASTSTRUCTURE
-        self._BUILD._write_(self._BUILD, "\n")  # write out new line to for bodies
+        # self._BUILD._write_(self._BUILD, "\n")  # write out new line to for bodies
         pass
 
     # Enter a parse tree produced by pascalParser#parameterGroup.
@@ -820,6 +823,7 @@ class pascalListener(ParseTreeListener):
 
     # Exit a parse tree produced by pascalParser#forStatement.
     def exitForStatement(self, ctx: pascalParser.ForStatementContext):
+        self._BUILD._write_function_end(self._BUILD);
         pass
 
     # Enter a parse tree produced by pascalParser#forList.
