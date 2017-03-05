@@ -43,8 +43,21 @@ class PascalBuildHandler(object):
 
         pass
 
+    def _write_enterBlock(self):
+        self._LAST_FILE.write('{')
+        pass
+
+    def _write_exitBlock(self):
+        self._LAST_FILE.write('}')
+        pass
+
     # Writes a function header to the file
     def _write_function(self, name):  # _PARAMETERS):
+        self._LAST_FILE.write('\nfunction ' + name + " ")
+        pass
+
+    # Writes a function header to the file
+    def _write_main_function(self, name):  # _PARAMETERS):
         self._LAST_FILE.write('\nfunction ' + name + " ")
         pass
 
@@ -58,7 +71,7 @@ class PascalBuildHandler(object):
         if isLocal:
             self._LAST_FILE.write('\n ' + 'local ')
         else:
-        #self._LAST_FILE.write('\n')
+            self._LAST_FILE.write('\n')
         pass  # writes a new variable to file, either local or global
 
     def _write_type_declaration_part(self):

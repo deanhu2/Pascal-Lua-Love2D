@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d0d3f102-b1c4-41af-87fb-235e9df9999a" name="Default" comment="Corrected local definition">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/PythonSource/pythoncore/add/add.lua" afterPath="" />
+    <list default="true" id="d0d3f102-b1c4-41af-87fb-235e9df9999a" name="Default" comment="Added requires functionality and outputs left over definitions.">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PythonSource/pythoncore/PascalBuildHandler.py" afterPath="$PROJECT_DIR$/PythonSource/pythoncore/PascalBuildHandler.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PythonSource/pythoncore/add/add.lua" afterPath="$PROJECT_DIR$/PythonSource/pythoncore/add/add.lua" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PythonSource/pythoncore/pascalListener.py" afterPath="$PROJECT_DIR$/PythonSource/pythoncore/pascalListener.py" />
     </list>
     <ignored path="PascalLove2D.iws" />
@@ -25,10 +25,32 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="pascalListener.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="pascalListener.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/PythonSource/pythoncore/pascalListener.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1785">
+            <state relative-caret-position="200">
+              <caret line="110" column="40" selection-start-line="110" selection-start-column="40" selection-end-line="110" selection-end-column="40" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pascalLoveParser.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PythonSource/pythoncore/pascalLoveParser.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#35#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PythonSource/pythoncore/main.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
@@ -38,8 +60,8 @@
       <file leaf-file-name="add.pas" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PythonSource/pythoncore/add.pas">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="1" selection-start-line="1" selection-start-column="1" selection-end-line="1" selection-end-column="1" />
+            <state relative-caret-position="178">
+              <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="52" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -48,8 +70,8 @@
       <file leaf-file-name="pascal.g4" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Grammar/pascal.g4">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+            <state relative-caret-position="46">
+              <caret line="247" column="0" selection-start-line="247" selection-start-column="0" selection-end-line="247" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -58,18 +80,18 @@
       <file leaf-file-name="PascalBuildHandler.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PythonSource/pythoncore/PascalBuildHandler.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="409">
-              <caret line="114" column="0" selection-start-line="114" selection-start-column="0" selection-end-line="114" selection-end-column="0" />
+            <state relative-caret-position="306">
+              <caret line="49" column="31" selection-start-line="49" selection-start-column="31" selection-end-line="49" selection-end-column="31" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="add.lua" pinned="false" current-in-tab="true">
+      <file leaf-file-name="add.lua" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PythonSource/pythoncore/add/add.lua">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="22" selection-start-line="1" selection-start-column="22" selection-end-line="1" selection-end-column="22" />
+            <state relative-caret-position="357">
+              <caret line="21" column="1" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -80,6 +102,7 @@
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
       <list>
+        <option value="Dean2191 &lt;de.hunte@gmail.com&gt;" />
         <option value="Dean &lt;de.hunte@gmail.com&gt;" />
         <option value="dean2191 &lt;de.hunte@gmail.com&gt;" />
         <option value="dean2191" />
@@ -96,9 +119,9 @@
         <option value="$PROJECT_DIR$/PythonSource/pythoncore/pascalBuildHandler.py" />
         <option value="$PROJECT_DIR$/PythonSource/pythoncore/readMe.txt" />
         <option value="$PROJECT_DIR$/PythonSource/pythoncore/pascalLoveParser.py" />
-        <option value="$PROJECT_DIR$/PythonSource/pythoncore/add/add.lua" />
         <option value="$PROJECT_DIR$/PythonSource/pythoncore/add.pas" />
         <option value="$PROJECT_DIR$/Grammar/pascal.g4" />
+        <option value="$PROJECT_DIR$/PythonSource/pythoncore/add/add.lua" />
         <option value="$PROJECT_DIR$/PythonSource/pythoncore/pascalListener.py" />
         <option value="$PROJECT_DIR$/PythonSource/pythoncore/PascalBuildHandler.py" />
       </list>
@@ -136,6 +159,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -210,7 +234,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -513,7 +536,14 @@
       <option name="project" value="LOCAL" />
       <updated>1475594015462</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Added requires functionality and outputs left over definitions.">
+      <created>1488711505464</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1488711505464</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -525,7 +555,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32961586" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3110285" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3110285" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13611111" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="LuaJ" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -562,7 +592,8 @@
     <MESSAGE value="Added for loop statement" />
     <MESSAGE value="Fixed constant definitions" />
     <MESSAGE value="Corrected local definition" />
-    <option name="LAST_COMMIT_MESSAGE" value="Corrected local definition" />
+    <MESSAGE value="Added requires functionality and outputs left over definitions." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added requires functionality and outputs left over definitions." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -572,16 +603,11 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/PythonSource/pythoncore/pascalListener.py</url>
-          <line>189</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/PythonSource/pythoncore/pascalListener.py</url>
-          <line>222</line>
-          <option name="timeStamp" value="8" />
+          <line>701</line>
+          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="9" />
+      <option name="time" value="10" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -916,21 +942,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PythonSource/pythoncore/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="10" column="34" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/PythonSource/pythoncore/readMe.txt" />
-    <entry file="file://$PROJECT_DIR$/PythonSource/pythoncore/pascalLoveParser.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="10" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pascallove2d.nja">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -938,42 +950,60 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PythonSource/pythoncore/add.pas">
+    <entry file="file://$PROJECT_DIR$/PythonSource/pythoncore/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="1" selection-start-line="1" selection-start-column="1" selection-end-line="1" selection-end-column="1" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PythonSource/pythoncore/pascalLoveParser.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Grammar/pascal.g4">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+        <state relative-caret-position="46">
+          <caret line="247" column="0" selection-start-line="247" selection-start-column="0" selection-end-line="247" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PythonSource/pythoncore/pascalListener.py">
+    <entry file="file://$PROJECT_DIR$/PythonSource/pythoncore/add.pas">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1785">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="178">
+          <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="52" selection-end-column="4" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/PythonSource/pythoncore/PascalBuildHandler.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="409">
-          <caret line="114" column="0" selection-start-line="114" selection-start-column="0" selection-end-line="114" selection-end-column="0" />
+        <state relative-caret-position="306">
+          <caret line="49" column="31" selection-start-line="49" selection-start-column="31" selection-end-line="49" selection-end-column="31" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/PythonSource/pythoncore/add/add.lua">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="22" selection-start-line="1" selection-start-column="22" selection-end-line="1" selection-end-column="22" />
+        <state relative-caret-position="357">
+          <caret line="21" column="1" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PythonSource/pythoncore/pascalListener.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="110" column="40" selection-start-line="110" selection-start-column="40" selection-end-line="110" selection-end-column="40" />
           <folding />
         </state>
       </provider>
