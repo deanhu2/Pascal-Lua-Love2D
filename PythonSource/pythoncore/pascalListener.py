@@ -96,6 +96,9 @@ class pascalListener(ParseTreeListener):
         elif self._CURRENTFLAG == 10:
             # self._BUILD._write_(self._BUILD, ctx.getText())
             self._CURRENTFLAG = 0
+
+        else:
+            self._BUILD._write_(self._BUILD, ctx.getText())
         pass
 
     # Exit a parse tree produced by pascalParser#identifier.
@@ -114,7 +117,7 @@ class pascalListener(ParseTreeListener):
     # Enter a parse tree produced by pascalParser#usesUnitsPart.
     def enterUsesUnitsPart(self, ctx: pascalParser.UsesUnitsPartContext):
         self._CURRENTFLAG = 2
-        # print(ctx.getText());
+        self._BUILD._test_uses(self._BUILD, ctx.getText())
         pass
 
     # Exit a parse tree produced by pascalParser#usesUnitsPart.
@@ -218,6 +221,7 @@ class pascalListener(ParseTreeListener):
 
     # Enter a parse tree produced by pascalParser#typeDefinitionPart.
     def enterTypeDefinitionPart(self, ctx: pascalParser.TypeDefinitionPartContext):
+        self._BUILD._write_type_declaration_part(self._BUILD)
         pass
 
     # Exit a parse tree produced by pascalParser#typeDefinitionPart.

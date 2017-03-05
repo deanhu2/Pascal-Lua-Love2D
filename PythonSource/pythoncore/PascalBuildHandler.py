@@ -59,7 +59,11 @@ class PascalBuildHandler(object):
             self._LAST_FILE.write('\n ' + 'local ')
         else:
         #self._LAST_FILE.write('\n')
-            pass
+        pass  # writes a new variable to file, either local or global
+
+    def _write_type_declaration_part(self):
+        self._LAST_FILE.write('\n ')
+        pass
 
     def _write_constant(self, ctx):
         self._LAST_FILE.write('\nlocal ' + ctx.getChild(0).getText() + ' ' + ctx.getChild(1).getText() + ' ')
@@ -107,4 +111,8 @@ class PascalBuildHandler(object):
         except OSError as exception:
             if exception.errno != errno.EEXIST:
                 raise
+        pass
+
+    def _test_uses(self, imported):
+        self._LAST_FILE.write('\n ' + 'require "' + imported + '"')
         pass
